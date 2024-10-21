@@ -1,23 +1,23 @@
 package com.jn.springdatajpa.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
 //@Table(name = "AUTHOR_TBL")
-public class Authors {
-    @Id
-    @GeneratedValue
+public class Authors extends BaseEntity {
+
+//    @Id
+//    @GeneratedValue
            /* (
             strategy = GenerationType.SEQUENCE,
             generator = "author_sequence"
@@ -35,7 +35,6 @@ public class Authors {
     allocationSize = 1)*/
 
     private Integer id;
-
     @Column(name = "f_name",
     length = 50,
     nullable = false)
