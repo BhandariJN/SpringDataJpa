@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.Polymorphism;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -17,6 +18,7 @@ import lombok.experimental.SuperBuilder;
 @Entity
 //@DiscriminatorValue("T")
 //@PrimaryKeyJoinColumn(name = "text_id")
+
 
 
 public class Text extends Resource {
