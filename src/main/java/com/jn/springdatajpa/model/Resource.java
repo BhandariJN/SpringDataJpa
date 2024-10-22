@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Entity
+@DiscriminatorColumn(name="resource_type")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
