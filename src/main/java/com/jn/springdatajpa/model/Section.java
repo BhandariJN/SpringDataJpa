@@ -6,13 +6,16 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder
-public class Section extends BaseEntity {
+@Builder
+public class Section  {
+    @Id
+    @GeneratedValue
+    private Integer id;
 
     private String name;
     private int section_order;

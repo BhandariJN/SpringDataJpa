@@ -7,17 +7,17 @@ import lombok.experimental.SuperBuilder;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode()
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
+@Builder
 @Entity
 //@Table(name = "AUTHOR_TBL")
-public class Authors extends BaseEntity {
+public class Authors  {
 
-//    @Id
-//    @GeneratedValue
+    @Id
+    @GeneratedValue
            /* (
             strategy = GenerationType.SEQUENCE,
             generator = "author_sequence"
