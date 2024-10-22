@@ -6,12 +6,13 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Entity
-@DiscriminatorColumn(name="resource_type")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
+//@DiscriminatorColumn(name="resource_type")  --> used only when single table strategy is used
+
 public class Resource   {
 
     @Id

@@ -2,6 +2,7 @@ package com.jn.springdatajpa.model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -11,7 +12,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @Entity
-@DiscriminatorValue("V")
+@PrimaryKeyJoinColumn(name = "video_id")
+//@DiscriminatorValue("V") --> used only for single table startegy
 public class Video  extends Resource{
     private  int length;
 }

@@ -2,6 +2,7 @@ package com.jn.springdatajpa.model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -11,8 +12,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @Entity
-@DiscriminatorValue("F")
-
+//@DiscriminatorValue("F")
+@PrimaryKeyJoinColumn(name = "file_id")
 public class File extends Resource {
 
     private String type;
