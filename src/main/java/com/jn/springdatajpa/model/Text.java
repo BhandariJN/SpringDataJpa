@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Entity
 //@DiscriminatorValue("T")
-@PrimaryKeyJoinColumn(name = "text_id")
+//@PrimaryKeyJoinColumn(name = "text_id")
 
 
 public class Text extends Resource {

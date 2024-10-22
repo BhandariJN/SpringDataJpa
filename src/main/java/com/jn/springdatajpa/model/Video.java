@@ -12,8 +12,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 @Entity
-@PrimaryKeyJoinColumn(name = "video_id")
-//@DiscriminatorValue("V") --> used only for single table startegy
+//@PrimaryKeyJoinColumn(name = "video_id") -->  used only for Join table strategy
+//@DiscriminatorValue("V") --> used only for single table strategy
 public class Video  extends Resource{
     private  int length;
 }
