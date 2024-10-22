@@ -14,7 +14,6 @@ import lombok.experimental.SuperBuilder;
 //@DiscriminatorColumn(name="resource_type")  --> used only when single table strategy is used
 
 public class Resource   {
-
     @Id
     @GeneratedValue
     private Integer id;
