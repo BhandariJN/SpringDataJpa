@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
+@ToString
 //@Table(name = "AUTHOR_TBL")
 public class Authors  {
 
