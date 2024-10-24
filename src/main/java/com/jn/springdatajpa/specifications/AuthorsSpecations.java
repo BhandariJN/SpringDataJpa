@@ -60,7 +60,6 @@ public class AuthorsSpecations {
                 return null;
             }
             return builder.equal(root.get("modifiedAt"), modifiedAt);
-
         };
         }
 

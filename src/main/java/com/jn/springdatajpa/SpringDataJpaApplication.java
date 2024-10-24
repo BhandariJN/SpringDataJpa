@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.domain.Specification;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @SpringBootApplication
@@ -100,8 +101,9 @@ public class SpringDataJpaApplication {
             */
 
             Specification<Authors> spec = Specification
-                    .where(AuthorsSpecations.hasAge(49));
-                    //.and(AuthorsSpecations.firstNameLike("on"));
+                    .where(AuthorsSpecations.hasAge(49))
+                    .and(AuthorsSpecations.firstNameLike("on"))
+                    .and(AuthorsSpecations.modifiedOnDate(LocalDate.ofEpochDay(2024-10-20)));
             authorRepositories.findAll(spec).forEach(System.out::println);
         };
     }
