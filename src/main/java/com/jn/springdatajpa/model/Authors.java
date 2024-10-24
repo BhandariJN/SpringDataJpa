@@ -14,11 +14,22 @@ import java.util.List;
 @Builder
 @Entity
 @ToString
-//@Table(name = "AUTHOR_TBL")
-public class Authors  {
 
-    @Id
-    @GeneratedValue
+@NamedQueries( {
+
+    @NamedQuery(name = "Authors.findByNamedQuery",
+            query = "select a from Authors a where a.age>=:age"
+    ),
+
+    @NamedQuery(name = "Authors.updateByNamedQuery",
+            query = "update Authors a set a.age=:age"
+    )
+})
+//@Table(name = "AUTHOR_TBL")
+    public class Authors  {
+
+        @Id
+        @GeneratedValue
            /* (
             strategy = GenerationType.SEQUENCE,
             generator = "author_sequence"
@@ -35,23 +46,25 @@ public class Authors  {
     valueColumnName = "id_value",
     allocationSize = 1)*/
 
-    private Integer id;
-    @Column(name = "f_name",
-    length = 50,
-    nullable = false)
-    private String firstName;
-    private String lastName;
-    @Column(unique = true,
-    nullable = false)
-    private String email;
-    private int age;
+        private Integer id;
+        @Column(name = "f_name",
+                length = 50,
+                nullable = false)
+        private String firstName;
+        private String lastName;
+        @Column(unique = true,
+                nullable = false)
+        private String email;
+        private int age;
 
-    @Column(updatable = false)
-    private LocalDateTime createdAt;
+        @Column(updatable = false)
+        private LocalDateTime createdAt;
 
-    @Column(insertable = false)
-    private LocalDateTime modifiedAt;
+        @Column(insertable = false)
+        private LocalDateTime modifiedAt;
 
-    @ManyToMany(mappedBy = "authors")
-    private List<Course> courses;
-}
+        @ManyToMany(mappedBy = "authors",
+                fetch = FetchType.EAGER)
+        private List<Course> courses;
+    }
+

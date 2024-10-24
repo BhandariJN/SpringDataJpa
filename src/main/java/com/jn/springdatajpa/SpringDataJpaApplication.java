@@ -5,6 +5,7 @@ import com.jn.springdatajpa.Repositories.AuthorRepositories;
 import com.jn.springdatajpa.Repositories.TextRepositories;
 import com.jn.springdatajpa.model.Authors;
 import com.jn.springdatajpa.model.Text;
+import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -61,18 +62,37 @@ public class SpringDataJpaApplication {
                 System.out.println(author.getFirstName() + " " + author.getLastName());
             }*/
 
-            List<Authors> containingAuthors = authorRepositories.findAllByFirstNameEndsWithIgnoreCase("e");
+           /* List<Authors> containingAuthors = authorRepositories.findAllByFirstNameEndsWithIgnoreCase("e");
 
             System.out.println("After fetching authors, found: " + containingAuthors.size());
 
             for (Authors author : containingAuthors) {
                 System.out.println(author.getFirstName() + " " + author.getLastName());
-            }
+            }*/
 
-        };
+          /*  var author = Authors.builder()
+                    .id(1)
+                    .firstName("Jhamkanath")
+                    .lastName("Bhandari")
+                    .age(23)
+                    .email("jn@gmail.com")
+                    .build();
+            authorRepositories.save(author);*/
+
+
+//
+//            authorRepositories.updateAuthorAge(100,1);
+//            var authors=  authorRepositories.findByNamedQuery(50);
+//            System.out.println("number of Authors: "+authors.size());
+//
+//      authors.forEach(System.out::println);
+
+
+            authorRepositories.updateByNamedQuery(55);
 
 
 
+       };
     }
 
 
