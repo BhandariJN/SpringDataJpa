@@ -4,13 +4,14 @@ import com.jn.springdatajpa.model.Authors;
 import jakarta.persistence.NamedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface AuthorRepositories extends JpaRepository<Authors, Integer> {
+public interface AuthorRepositories extends JpaRepository<Authors, Integer>, JpaSpecificationExecutor<Authors> {
 
 //named Query example
 

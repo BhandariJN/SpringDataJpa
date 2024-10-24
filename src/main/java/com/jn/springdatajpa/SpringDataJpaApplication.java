@@ -5,11 +5,13 @@ import com.jn.springdatajpa.Repositories.AuthorRepositories;
 import com.jn.springdatajpa.Repositories.TextRepositories;
 import com.jn.springdatajpa.model.Authors;
 import com.jn.springdatajpa.model.Text;
+import com.jn.springdatajpa.specifications.AuthorsSpecations;
 import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
 
@@ -88,12 +90,20 @@ public class SpringDataJpaApplication {
 //      authors.forEach(System.out::println);
 
 
-            authorRepositories.updateByNamedQuery(55);
+//            authorRepositories.updateByNamedQuery(55);
 
 
+            /*for(int i=0;i<50;i++){
+                Faker faker = new Faker();
+                authorRepositories.updateAuthorAge(faker.number().numberBetween(18,90),i);
+            }
+            */
 
-       };
+            Specification<Authors> spec = Specification
+                    .where(AuthorsSpecations.hasAge(49));
+                    //.and(AuthorsSpecations.firstNameLike("on"));
+            authorRepositories.findAll(spec).forEach(System.out::println);
+        };
     }
-
 
 }
